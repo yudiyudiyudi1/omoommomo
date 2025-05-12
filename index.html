@@ -1,0 +1,146 @@
+Tentu! Berikut adalah versi yang lebih interaktif dari kode HTML Anda. Saya telah menambahkan beberapa fitur, termasuk animasi pada tombol saat diklik, efek suara yang lebih menarik, dan animasi confetti yang lebih berwarna. Selain itu, saya juga menambahkan efek transisi pada teks yang muncul.
+
+```html
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <title>Untuk Nadwah pacar akmal 💌</title>
+  <link href="https://fonts.googleapis.com/css2?family=Dancing+Script&display=swap" rel="stylesheet">
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: 'Dancing Script', cursive;
+      background: linear-gradient(to bottom, #ffe6f0, #ffcce0);
+      overflow: hidden;
+      text-align: center;
+    }
+
+    h1 {
+      margin-top: 100px;
+      color: #880e4f;
+      font-size: 48px;
+    }
+
+    #text {
+      font-size: 24px;
+      margin-top: 40px;
+      color: #ad1457;
+      min-height: 100px;
+      opacity: 0;
+      transition: opacity 0.5s ease-in-out;
+    }
+
+    button {
+      margin-top: 30px;
+      padding: 12px 30px;
+      font-size: 20px;
+      background-color: #ec407a;
+      color: white;
+      border: none;
+      border-radius: 30px;
+      cursor: pointer;
+      transition: background-color 0.3s, transform 0.2s;
+    }
+
+    button:hover {
+      background-color: #d81b60;
+    }
+
+    button:active {
+      transform: scale(0.95);
+    }
+
+    .heart {
+      position: absolute;
+      width: 20px;
+      height: 20px;
+      background-color: red;
+      transform: rotate(45deg);
+      animation: fall 5s linear infinite;
+    }
+
+    .heart::before,
+    .heart::after {
+      content: '';
+      position: absolute;
+      width: 20px;
+      height: 20px;
+      background-color: red;
+      border-radius: 50%;
+    }
+
+    .heart::before {
+      top: -10px;
+      left: 0;
+    }
+
+    .heart::after {
+      left: -10px;
+      top: 0;
+    }
+
+    @keyframes fall {
+      0% {
+        top: -10%;
+        opacity: 1;
+      }
+      100% {
+        top: 110%;
+        opacity: 0;
+      }
+    }
+
+    /* Gaya confetti */
+    .confetti {
+      position: absolute;
+      width: 10px;
+      height: 10px;
+      opacity: 0.8;
+      animation: fall 3s forwards;
+    }
+
+    @keyframes fall {
+      0% {
+        transform: translateY(0);
+      }
+      100% {
+        transform: translateY(100vh);
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <h1>Hai Nadwah SI CANTIK SEDUNIAAA ✨</h1>
+  <div id="text"></div>
+  <button id="mainButton" onclick="nextText()">KLIK INIIIIIII BERARTI CINTA AKMAL</button>
+
+  <script>
+    const texts = [
+      "Halo Nadwah... huhu semalem akmal nyebelin nadwah pasti marah banget ",
+      "kamu jangan ngambek lagi sayang hehehe aku bikin ini sambil main roblox bareng febry zidane hanip tamam pake discord",
+      "semoga pas kamu buka ini kamu maafin aku yaaa huhuhuhuhuhuhuh",
+      "Aku minta maaf yaa... huhuhuhu",
+      "Aku harap kamu tetap senyum hari ini 🌸",
+      "ABIS INI WA AKUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUU"
+    ];
+
+    let index = 0;
+
+    function nextText() {
+      if (index < texts.length) {
+        const textElement = document.getElementById("text");
+        textElement.innerHTML = texts[index];
+        textElement.style.opacity = 0; // Set opacity to 0 for fade effect
+        setTimeout(() => {
+          textElement.style.opacity = 1; // Fade in
+        }, 100); // Delay for fade effect
+        playSound();
+        createConfetti();
+        index++;
+      } else {
+        document.getElementById("text").innerHTML = `
+          Udah habis tapi pesanku belum selesai buat kamu... 😔❤️<br><br>
+          <
